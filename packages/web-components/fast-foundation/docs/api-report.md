@@ -517,7 +517,7 @@ export type CSSDisplayPropertyValue = "block" | "contents" | "flex" | "grid" | "
 export const darkModeStylesheetBehavior: (styles: ElementStyles) => MatchMediaStyleSheetBehavior;
 
 // @public
-export class DataGrid extends FoundationElement {
+export class DataGrid extends VirtualizingStackBase {
     constructor();
     cellItemTemplate?: ViewTemplate;
     columnDefinitions: ColumnDefinition[] | null;
@@ -2416,7 +2416,14 @@ export function validateKey(key: any): void;
 export type VerticalPosition = "top" | "bottom" | "unset";
 
 // @public
-export class VirtualizingStack extends FoundationElement {
+export class VirtualizingStack extends VirtualizingStackBase {
+}
+
+// @beta
+export type VirtualizingStackAutoUpdateMode = "manual" | "resize-only" | "auto";
+
+// @public (undocumented)
+export class VirtualizingStackBase extends FoundationElement {
     // @beta (undocumented)
     autoUpdateMode: VirtualizingStackAutoUpdateMode;
     // @internal (undocumented)
@@ -2425,8 +2432,6 @@ export class VirtualizingStack extends FoundationElement {
     connectedCallback(): void;
     // @internal
     containerElement: HTMLDivElement;
-    // @beta (undocumented)
-    contextParent: FASTElement | null;
     // @internal (undocumented)
     disconnectedCallback(): void;
     // (undocumented)
@@ -2441,6 +2446,10 @@ export class VirtualizingStack extends FoundationElement {
     itemTemplate: ViewTemplate;
     // @beta (undocumented)
     layoutUpdateDelay: number;
+    // (undocumented)
+    protected reset(): void;
+    // @internal
+    stackElement: HTMLDivElement;
     // @internal (undocumented)
     topSpacerHeight: number;
     // @internal (undocumented)
@@ -2452,12 +2461,11 @@ export class VirtualizingStack extends FoundationElement {
     viewportBuffer: number;
     // @beta
     viewportElement: HTMLElement;
+    // @beta (undocumented)
+    virtualize: boolean;
     // @internal (undocumented)
     visibleItems: any[];
     }
-
-// @beta
-export type VirtualizingStackAutoUpdateMode = "manual" | "resize-only" | "auto";
 
 // @public
 export const virtualizingStackTemplate: (context: ElementDefinitionContext, definition: FoundationElementDefinition) => ViewTemplate<VirtualizingStack>;
