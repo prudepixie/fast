@@ -541,8 +541,6 @@ export class DataGrid extends VirtualizingStackBase {
     // @internal (undocumented)
     handleRowFocus(e: Event): void;
     headerCellItemTemplate?: ViewTemplate;
-    // (undocumented)
-    itemHeight: number;
     // @internal
     rowElements: HTMLElement[];
     rowElementTag: string;
@@ -550,9 +548,7 @@ export class DataGrid extends VirtualizingStackBase {
     rowsData: object[];
     // @internal (undocumented)
     stack: VirtualizingStack;
-    // (undocumented)
-    virtualize: boolean;
-}
+    }
 
 // @public
 export class DataGridCell extends FoundationElement {
@@ -2448,8 +2444,6 @@ export class VirtualizingStackBase extends FoundationElement {
     layoutUpdateDelay: number;
     // (undocumented)
     protected reset(): void;
-    // @internal
-    stackElement: HTMLDivElement;
     // @internal (undocumented)
     topSpacerHeight: number;
     // @internal (undocumented)

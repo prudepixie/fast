@@ -1,6 +1,5 @@
 import { children, elements, html, ref, when } from "@microsoft/fast-element";
 import type { ViewTemplate } from "@microsoft/fast-element";
-import { VirtualizingStack } from "../virtualizing-stack";
 import type { DataGrid } from "./data-grid";
 import { DataGridRow } from "./data-grid-row";
 
@@ -8,6 +7,7 @@ function createRowItemTemplate(context): ViewTemplate {
     const rowTag = context.tagFor(DataGridRow);
     return html`
     <${rowTag}
+        :grid-row:${(x, c) => c.index + 2}
         :rowData="${x => x}"
         :cellItemTemplate="${(x, c) => c.parent.cellItemTemplate}"
         :headerCellItemTemplate="${(x, c) => c.parent.headerCellItemTemplate}"
@@ -36,11 +36,11 @@ export const dataGridTemplate: (context, definition) => ViewTemplate<DataGrid> =
             ${ref("containerElement")}
             style="
                 overflow: hidden;
-                height: ${x => x.totalHeight}px;
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: ${x => x.topSpacerHeight}px repeat(${(x, c) =>
-                x.visibleItems.length}, 1fr) ${x => x.bottomSpacerHeight}px;
+                x.visibleItems.length}, ${x => x.itemHeight}px) ${x =>
+                x.bottomSpacerHeight}px;
             "
             ${children({
                 property: "rowElements",
