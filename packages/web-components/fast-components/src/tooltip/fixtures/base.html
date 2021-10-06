@@ -1,8 +1,14 @@
 <h1>Tooltip</h1>
 
 <h2>Default</h2>
-<div style="height: 400px; width: 400px; background: lightgray; overflow: scroll;">
+<div
+    id="default-viewport"
+    style="height: 400px; width: 400px; background: lightgray; overflow: scroll;"
+>
     <fast-tooltip
+        viewport="default-viewport"
+        vertical-viewport-lock="true"
+        horizontal-viewport-lock="true"
         anchor="anchor-default"
         id="tooltip-default"
         aria-label="tooltip label"
@@ -12,7 +18,7 @@
     </fast-tooltip>
     <fast-button
         id="anchor-default"
-        style="margin: 200px; height: 150px; width: 150px;"
+        style="margin: 300px; height: 150px; width: 150px;"
         aria-labelledby="tooltip-default"
         aria-describedby="tooltip-default"
     >
@@ -49,7 +55,7 @@
     vertical-viewport-lock="true"
     horizontal-viewport-lock="true"
 >
-    Helpful text is helpful
+    Helpful text is really, really super helpful
 </fast-tooltip>
 <fast-tooltip
     id="tooltip-show-4"
@@ -61,7 +67,7 @@
 >
     Helpful text is helpful
 </fast-tooltip>
-<fast-button id="anchor-show" style="margin: 100px 200px 100px 200px;">
+<fast-button id="anchor-show" style="margin: 100px 200px 100px 0px;">
     Toggle tooltips
 </fast-button>
 
