@@ -45,6 +45,8 @@ export const dataGridTemplate: (context, definition) => ViewTemplate<DataGrid> =
             <div
                 style="
                     display: grid;
+                    height: ${x => x.totalStackSpan}px;
+                    grid-template-rows:${x => x.gridTemplateSpans};
                 "
                 ${ref("containerElement")}
             >
