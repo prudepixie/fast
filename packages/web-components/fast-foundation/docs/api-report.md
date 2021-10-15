@@ -2429,13 +2429,9 @@ export class VirtualizingStackBase extends FoundationElement {
     // @internal (undocumented)
     disconnectedCallback(): void;
     // @beta (undocumented)
-    endItemSpans: number[];
+    endRegionSpan: number;
     // @internal (undocumented)
     endSpacerSpan: number;
-    // @internal (undocumented)
-    gridTemplateColumns: string;
-    // @internal (undocumented)
-    gridTemplateRows: string;
     // @internal (undocumented)
     gridTemplateSpans: string;
     // (undocumented)
@@ -2453,7 +2449,7 @@ export class VirtualizingStackBase extends FoundationElement {
     // (undocumented)
     spanMap: number[];
     // @beta (undocumented)
-    startItemSpans: number[];
+    startRegionSpan: number;
     // @internal (undocumented)
     startSpacerSpan: number;
     // @internal (undocumented)
